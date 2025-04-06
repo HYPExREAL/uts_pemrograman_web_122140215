@@ -7,7 +7,7 @@ const ProfilePage = () => {
                 Your Profile
             </h2>
             <p className="font-poppins text-black-700 mb-8">
-                Here's a summary of your tracked media:
+                Here's a summary of your tracked hobby:
             </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-secondary text-white p-6 rounded-lg shadow-md">

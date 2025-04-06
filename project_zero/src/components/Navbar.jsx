@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <nav className="bg-secondary text-white py-4">
             <div className="container mx-auto flex justify-between items-center">
-                <h1 className="font-raleway text-2xl font-bold">MediaTrackr</h1>
+                <h1 className="font-raleway text-2xl font-bold">HobiKu</h1>
                 <ul className="flex space-x-4">
                     <li>
                         <Link to="/" className="font-poppins hover:text-black">

@@ -4,7 +4,7 @@ const HomePage = () => {
     return (
         <div className="min-h-screen bg-white p-8">
             <h2 className="font-raleway text-3xl font-bold text-primary mb-6">
-                Welcome to MediaTrackr
+                Welcome to HobiKu
             </h2>
             <p className="font-poppins text-black-700 mb-8">
                 Track your favorite games, anime, manga, and more in one place.

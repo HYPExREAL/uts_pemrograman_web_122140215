@@ -2,8 +2,8 @@
 @import "tailwindcss";
 
 :root {
-    --primary-color: #2E7D32; /* Hijau tua */
-    --secondary-color: #4CAF50; /* Hijau muda */
+    --primary-color: #60B5FF;
+    --secondary-color: #AFDDFF;
 }
 
 .text-primary {
