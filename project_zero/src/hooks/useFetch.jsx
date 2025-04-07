@@ -6,25 +6,34 @@ function useFetch(url) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const controller = new AbortController();
-        const signal = controller.signal;
         const fetchData = async () => {
             try {
                 setLoading(true);
-                const response = await fetch(url, { signal });
-                if (!response.ok) throw new Error('Network response was not ok');
+                const response = await fetch(url);
+
+                // Periksa apakah respons adalah JSON
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    throw new Error('Response is not valid JSON');
+                }
+
                 const result = await response.json();
                 setData(result);
                 setError(null);
             } catch (err) {
-                if (err.name !== 'AbortError') setError(err.message);
+                setError(err.message);
             } finally {
                 setLoading(false);
             }
         };
+
         fetchData();
-        return () => controller.abort();
     }, [url]);
+
     return { data, loading, error };
 }
 

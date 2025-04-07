@@ -11,11 +11,8 @@ const trackerSlice = createSlice({
         addItem: (state, action) => {
             state.items.push(action.payload);
         },
-        removeItem: (state, action) => {
-            state.items = state.items.filter(item => item.id !== action.payload);
-        },
     },
 });
 
-export const { addItem, removeItem } = trackerSlice.actions;
+export const { addItem } = trackerSlice.actions;
 export default trackerSlice.reducer;

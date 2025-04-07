@@ -15,7 +15,7 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <Navbar />
-        <main className="container mx-auto px-4 py-6">
+        <main className="container mx-auto px-2 py-2">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/items" element={<ItemListPage />} />
