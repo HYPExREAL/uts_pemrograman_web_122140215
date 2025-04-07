@@ -7,10 +7,10 @@
 }
 
 .text-primary {
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 .bg-secondary {
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -19,7 +19,7 @@ const Navbar = () => {
                     </li>
                     <li>
                         <Link to="/profile" className="font-poppins hover:text-black">
-                            Profile
+                            urSpace
                         </Link>
                     </li>
                 </ul>
