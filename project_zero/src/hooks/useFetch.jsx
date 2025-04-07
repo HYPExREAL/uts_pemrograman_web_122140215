@@ -6,32 +6,56 @@ function useFetch(url) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchData = async () => {
+        // Validasi URL
+        if (!url) {
+            setError('Invalid URL');
+            setLoading(false);
+            return;
+        }
+
+        const controller = new AbortController();
+        const signal = controller.signal;
+
+        async function fetchData() {
             try {
                 setLoading(true);
-                const response = await fetch(url);
+                const response = await fetch(url, { signal });
 
-                // Periksa apakah respons adalah JSON
+                // Validasi status response
                 if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                    throw new Error(`HTTP error! Status: ${response.status}`);
                 }
 
+                // Validasi content type
                 const contentType = response.headers.get('content-type');
                 if (!contentType || !contentType.includes('application/json')) {
                     throw new Error('Response is not valid JSON');
                 }
 
-                const result = await response.json();
-                setData(result);
+                const responseData = await response.json();
+
+                // Validasi data kosong
+                if (!responseData) {
+                    throw new Error('No data available');
+                }
+
+                setData(responseData);
                 setError(null);
             } catch (err) {
-                setError(err.message);
+                if (err.name !== 'AbortError') {
+                    setError(err.toString() || 'An unexpected error occurred');
+                }
             } finally {
                 setLoading(false);
             }
-        };
+        }
 
         fetchData();
+
+        // Cleanup function
+        return () => {
+            controller.abort();
+        };
     }, [url]);
 
     return { data, loading, error };

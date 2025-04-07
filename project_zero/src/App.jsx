@@ -5,8 +5,6 @@ import store from './redux/store.js';
 import Navbar from './components/Navbar.jsx';
 import HomePage from './pages/HomePage.jsx';
 import ItemListPage from './pages/ItemListPage.jsx';
-import ItemDetailPage from './pages/ItemDetailPage.jsx';
-import AddItemPage from './pages/AddItemPage.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 
@@ -19,8 +17,6 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/items" element={<ItemListPage />} />
-            <Route path="/items/:id" element={<ItemDetailPage />} />
-            <Route path="/add-item" element={<AddItemPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/404" element={<NotFoundPage />} />
             <Route path="*" element={<Navigate to="/404" replace />} />
